@@ -1,7 +1,6 @@
 import { Education } from "./Education"
 import { Personal } from "./Personal"
 
-
 export const Base = ()=>{
     return (<>
 <main>
@@ -12,7 +11,7 @@ export const Base = ()=>{
         <div className="edit">
             <div className="edit-btn clear-resume"> Clear Resume</div>
             <div className="edit-btn load-example">Load Example</div>
-        </div>
+            </div>
         </div>
 
         <div className="description">
