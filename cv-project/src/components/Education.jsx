@@ -1,12 +1,20 @@
-import EducationForm from "./education/EducationForm"
-
+import InputGroup from "./InputGroup"
 export const Education = () => {
 
     return (
         <>
+    
 
-        <EducationForm />
-            {/* <div className="education">
+    <InputGroup
+     type="text"
+     id="date"
+     labelText="Start Date"
+     placeholder="Enter Start Date"
+     data-key="startDate"
+    />
+
+        
+            <div className="education">
                 <form action="">
                     <h2>Education </h2>
                     <div className="input-group">
@@ -37,7 +45,7 @@ export const Education = () => {
                         <input type="text" id="location" placeholder="City,Country" />
                     </div>
                 </form>
-            </div> */}
+            </div>
         </>
     )
 }

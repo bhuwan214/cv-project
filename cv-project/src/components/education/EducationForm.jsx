@@ -1,8 +1,10 @@
 import InputGroup from "../InputGroup";
+import PropTypes from 'prop-types';
+
 
 function EducationForm(props) {
     const { degree, schoolName, location, startDate, endDate, id } = props.form;
-    const {onChange, cancel, save, remove}=props;
+    const {onChange,save, cancel, remove}=props;
 
 
     return(
@@ -71,4 +73,25 @@ function EducationForm(props) {
 
 }
 
-export default EducationForm;
+
+
+// Props validation using PropTypes
+
+EducationForm.propTypes = {
+    form: PropTypes.shape({
+        degree: PropTypes.string,         // 'degree' must be a string (optional)
+        schoolName: PropTypes.string.isRequired, // 'schoolName' is a required string
+        location: PropTypes.string,       // 'location' can be a string (optional)
+        startDate: PropTypes.string,      // 'startDate' should be a string (optional)
+        endDate: PropTypes.string,        // 'endDate' should be a string (optional)
+        id: PropTypes.string.isRequired,  // 'id' is a required string
+    }).isRequired,
+    onChange: PropTypes.func.isRequired,  // 'onChange' must be a function and is required
+    cancel: PropTypes.func,               // 'cancel' must be a function (optional)
+    save: PropTypes.func,                 // 'save' must be a function (optional)
+    remove: PropTypes.func                // 'remove' must be a function (optional)
+};
+
+
+
+export default EducationForm
