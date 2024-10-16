@@ -1,6 +1,6 @@
 import { Education } from "./Education"
 import { Personal } from "./Personal"
-
+import { Experience } from "./experience"
 export const Base = ()=>{
     return (<>
 <main>
@@ -14,9 +14,10 @@ export const Base = ()=>{
             </div>
         </div>
 
-        <div className="description">
-           <Personal></Personal>
-            <Education></Education>
+        <div className="detail-component">
+           <Personal/>
+            <Education/>
+            <Experience/>
            
            <div className="form-btn">
             <button id="save-btn">save</button>

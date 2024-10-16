@@ -52,7 +52,7 @@ export const Education = () => {
                         type="name"
                         placeholder="City,Coutry"
                         labelText="Location"
-
+                        optional="true"
 
                     />
                 
