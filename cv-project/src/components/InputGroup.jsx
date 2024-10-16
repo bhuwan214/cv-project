@@ -13,7 +13,7 @@ function InputGroup({
 }){
     return(
         <div className="input-group">
-            <label htmlFor="{id}">
+            <label htmlFor={id}>
                 <span className="label-text">{labelText}</span>
                 {optional && <span className="optional-text">optional</span>}
                 {recommended && <span className="recommended-text">recommended</span>}

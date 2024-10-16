@@ -1,49 +1,61 @@
 import InputGroup from "./InputGroup"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
+
+
 export const Education = () => {
 
     return (
         <>
-    
-
-    <InputGroup
-     type="text"
-     id="date"
-     labelText="Start Date"
-     placeholder="Enter Start Date"
-     data-key="startDate"
-    />
-
-        
             <div className="education">
+
                 <form action="">
-                    <h2>Education </h2>
-                    <div className="input-group">
-                        <label htmlFor="school">School</label>
-                        <input type="text" id="school" placeholder="School" />
-                    </div>
+                    <h2>Education  <FontAwesomeIcon icon={faAngleDown}  className='arrow-down'/> </h2>
+                   
+                    <InputGroup
+                        id="school"
+                      type="text" 
+                      name="school" 
+                      placeholder="School"
+                      labelText="School"
+                    
+                    />
+                    <InputGroup 
+                    id="degree"
+                    type="text"
+                    name="degree"
+                    placeholder="Degree"
+                    labelText="Degree"
+                    />
 
-                    <div className="input-group">
-                        <label htmlFor="degree">Degree</label>
-                        <input type="text" id="degree" placeholder="Degree" />
-                    </div>
+                    <InputGroup
+                        type="text"
+                        id="date"
+                        name="start-Date"
+                        labelText="Start Date"
+                        placeholder="Enter Start Date"
+                        data-key="startDate"
+                    />
 
-                    <div className="input-group">
-                        <div className="dates">
-                            <div className="start">
-                                <label htmlFor="start-date">Starting Date</label>
-                                <input type="date" id="start-date" />
-                            </div>
-                        </div>
-                        <div className="end">
-                            <label htmlFor="end-date">Ending Date</label>
-                            <input type="date" id="end-date" />
-                        </div>
-                    </div>
+                    <InputGroup
+                        type="text"
+                        id="date"
+                        name="end-Date"
+                        labelText="End Date"
+                        placeholder="Enter End Date"
+                        data-key="endDate"
+                    />
 
-                    <div className="input-group">
-                        <label htmlFor="loction">location</label>
-                        <input type="text" id="location" placeholder="City,Country" />
-                    </div>
+                    <InputGroup
+                        id="location"
+                        name="location"
+                        type="name"
+                        placeholder="City,Coutry"
+                        labelText="Location"
+
+
+                    />
+                
                 </form>
             </div>
         </>
