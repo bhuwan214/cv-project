@@ -1,6 +1,6 @@
-import { Education } from "./Education"
+import { Education } from "./education/Education"
 import { Personal } from "./Personal"
-import { Experience } from "./experience"
+import { Experience } from "./experience/Experience"
 export const Base = ()=>{
     return (<>
 <main>
