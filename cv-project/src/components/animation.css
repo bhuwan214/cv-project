@@ -1,0 +1,16 @@
+.arrow-down .open{
+   transition-duration: 0.25s;
+   visibility: visible;
+   opacity: 1;
+   transform: translateY(0);
+
+}
+
+.angle-down{
+    transition: transform 0.3s;
+    transform: rotate(-180deg);
+}
+
+.angle-down.open{
+    transform: rotate(0);
+}

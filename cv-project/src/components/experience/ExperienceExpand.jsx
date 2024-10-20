@@ -59,6 +59,8 @@ function ExperienceExpand({ experience }) {
         onChange={handleChange}
         data-key="location"
       />
+     
+      {console.log(formData.location)}
     </div>
   );
 }

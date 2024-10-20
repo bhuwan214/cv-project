@@ -1,17 +1,27 @@
+import { useState } from "react"
 import InputGroup from "../InputGroup"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
-
+import '../animation.css'
 
 export const Education = () => {
+
+    
+    const [isExpanded,setIsExpanded] = useState(false);
+
+    const toggleExpand=()=>{
+        setIsExpanded(!isExpanded);
+    }
+
 
     return (
         <>
             <div className="education">
 
-                <form action="">
-                    <h2>Education  <FontAwesomeIcon icon={faAngleDown}  className='arrow-down'/> </h2>
-                   
+                
+                    <div className="section-header"  onClick={toggleExpand}>
+                <h2>Education <span className='arrow-down'><FontAwesomeIcon icon={faAngleDown} className={` angle-down ${isExpanded?'':'open'}`} /></span> </h2>
+                    </div>
                     <InputGroup
                         id="school"
                       type="text" 
@@ -55,8 +65,6 @@ export const Education = () => {
                         optional="true"
 
                     />
-                
-                </form>
             </div>
         </>
     )

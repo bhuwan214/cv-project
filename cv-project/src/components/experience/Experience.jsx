@@ -1,11 +1,8 @@
-import React,{useState} from "react";
+import {useState} from "react";
 import ExperienceInfo from "./ExperienceInfo";
-
-import InputGroup from "../InputGroup";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
-import { faRotate } from "@fortawesome/free-solid-svg-icons/faRotate";
-
+import "../animation.css"
 
  export function Experience(){
 
@@ -19,7 +16,7 @@ import { faRotate } from "@fortawesome/free-solid-svg-icons/faRotate";
 
         <div className="experience">
             <div className="section-header" onClick={toggleExpand}>
-            <h2>Education  <span><FontAwesomeIcon icon={faAngleDown,faRotate}  className='arrow-down'/> </span> </h2>
+            <h2>Experience  <span className='arrow-down'><FontAwesomeIcon icon={faAngleDown} className={` angle-down ${isExpanded?'':'open'}`} /></span> </h2>
             </div>
             {isExpanded && <ExperienceInfo/>}
 
