@@ -18,6 +18,7 @@ function EducationInfo() {
   };
 
   return (
+    <>
     <div className="education-info">
       {educations.map((edu, index) => (
         <div key={index} className="education-item">
@@ -30,8 +31,11 @@ function EducationInfo() {
           {expandedIndex === index && <EducationExpand education={edu} />}
         </div>
       ))}
-      <button className="add-education-btn">+ Education</button>
+      
     </div>
+
+   <div className="btn"> <button className="add-education-btn">+ Education</button></div>
+    </>
   );
 }
 

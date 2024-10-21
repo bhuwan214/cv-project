@@ -1,9 +1,8 @@
 import { useState } from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
-import '../animation.css'
 import EducationInfo from './EducationInfo';
-
+import '../../style/form.css'
 export function Education() {
   const [isExpanded, setIsExpanded] = useState(false);
 

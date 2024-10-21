@@ -18,6 +18,7 @@ function ExperienceInfo() {
   };
 
   return (
+    <>
     <div className="experience-info">
       {experiences.map((exp, index) => (
         <div key={index} className="experience-item">
@@ -30,8 +31,11 @@ function ExperienceInfo() {
           {expandedIndex === index && <ExperienceExpand experience={exp} />}
         </div>
       ))}
-      <button className="add-experience-btn">+ Experience</button>
+    
     </div>
+    <div className="btn">
+    <button className="add-experience-btn">+ Experience</button></div>
+    </>
   );
 }
 

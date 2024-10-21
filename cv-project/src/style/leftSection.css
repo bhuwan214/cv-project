@@ -4,7 +4,7 @@
     height: fit-content;
     border-radius: 10px;
     padding:10px;
-    margin: 10px 30px;
+    margin: 10px 20px;
   
   }
   .detail-component{
@@ -19,7 +19,7 @@
     width: 350px;
     height: fit-content;
     border-radius: 10px;
-    padding:20px; 
+    padding:10px 30px;
     box-shadow:0 7px 29px 0 hsla(240,5%,41%,.2);
   
   }
@@ -28,7 +28,7 @@
     font-family: NotoSans;
     letter-spacing: -.6px;
     font-size: 25px;
-    padding-top: 10px;
+  
   }
   
   label{
@@ -77,12 +77,15 @@
   
   button{
     width: 5em;
-    margin-top: 20px;
     padding: 10px;
-    margin-left:20px ;
+    margin:20px 0;
     text-transform: capitalize;
     border: none;
     border-radius: 5px;
     color: white;
   }
   
+  
+.arrow-down{
+  margin-left:10px;
+}

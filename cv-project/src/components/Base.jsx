@@ -1,7 +1,7 @@
 import { Education } from "./education/Education"
 import { Personal } from "./Personal"
 import { Experience } from "./experience/Experience"
-import './leftSection.css'
+import '../style/leftSection.css'
 
 
 export const Base = ()=>{
