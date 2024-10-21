@@ -1,97 +1,38 @@
-import InputGroup from "../InputGroup";
-import PropTypes from 'prop-types';
+import { useState } from 'react';
+import EducationExpand from './EducationExpand';
 
+function EducationInfo() {
+  const [expandedIndex, setExpandedIndex] = useState(null);
 
-function EducationForm(props) {
-    const { degree, schoolName, location, startDate, endDate, id } = props.form;
-    const {onChange,save, cancel, remove}=props;
+  const educations = [
+    { schoolName: 'London City University', visible: true },
+    { schoolName: 'Hidden University', visible: true }
+  ];
 
+  const toggleEducationExpand = (index) => {
+    if (expandedIndex === index) {
+      setExpandedIndex(null); // Close if clicked again
+    } else {
+      setExpandedIndex(index); // Expand clicked item
+    }
+  };
 
-    return(
-        <form
-        className="education-form"
-        id={id}
-        data-array-name="educations"
-        onSubmit={(e)=>e.preventDefault()}
-        >
-            <InputGroup 
-            type="text"
-            id="school-name"
-            labelText="School"
-            placeholder="Enter School"
-            value={schoolName}
-            onChange={onChange}
-            data-key="schoolName"
-            />
+  return (
+    <div className="education-info">
+      {educations.map((edu, index) => (
+        <div key={index} className="education-item">
+          <div className="education-title" onClick={() => toggleEducationExpand(index)}>
+            {edu.schoolName}
+            {edu.visible ? <span role="img" aria-label="visible-icon">👁️</span> : <span role="img" aria-label="hidden-icon">🙈</span>}
+          </div>
 
-            <InputGroup
-              type="text"
-              id="degree"
-              labelText="Degree"
-              placeholder="Enter Degree / Field Of Study"
-              value={degree}
-              onChange={onChange}
-              data-key="degree"
-            />
-
-<div className="dates-group">
-
-        <InputGroup
-          type="text"
-          id="date"
-          labelText="Start Date"
-          placeholder="Enter Start Date"
-          value={startDate}
-          onChange={onChange}
-          data-key="startDate"
-        />
-        <InputGroup
-          type="text"
-          id="date"
-          labelText="End Date"
-          placeholder="Enter End Date"
-          value={endDate}
-          onChange={onChange}
-          data-key="endDate"
-        />
-
-      </div>
-
-      <InputGroup
-        type="text"
-        id="location"
-        labelText="Location"
-        placeholder="Enter Location"
-        value={location}
-        onChange={onChange}
-        data-key="location"
-        optional
-      />
-
-        </form>
-    )
-
+          {/* If the clicked education item matches the expanded index, show the expanded form */}
+          {expandedIndex === index && <EducationExpand education={edu} />}
+        </div>
+      ))}
+      <button className="add-education-btn">+ Education</button>
+    </div>
+  );
 }
 
-
-
-// Props validation using PropTypes
-
-EducationForm.propTypes = {
-    form: PropTypes.shape({
-        degree: PropTypes.string,         // 'degree' must be a string (optional)
-        schoolName: PropTypes.string.isRequired, // 'schoolName' is a required string
-        location: PropTypes.string,       // 'location' can be a string (optional)
-        startDate: PropTypes.string,      // 'startDate' should be a string (optional)
-        endDate: PropTypes.string,        // 'endDate' should be a string (optional)
-        id: PropTypes.string.isRequired,  // 'id' is a required string
-    }).isRequired,
-    onChange: PropTypes.func.isRequired,  // 'onChange' must be a function and is required
-    cancel: PropTypes.func,               // 'cancel' must be a function (optional)
-    save: PropTypes.func,                 // 'save' must be a function (optional)
-    remove: PropTypes.func                // 'remove' must be a function (optional)
-};
-
-
-
-export default EducationForm
+export default EducationInfo;

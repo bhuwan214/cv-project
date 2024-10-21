@@ -1,18 +1,19 @@
 import React from 'react';
-import InputGroup from '../InputGroup'; // Reusable input component
+import InputGroup from "../InputGroup"; // Reusable input component
 
 function ExperienceExpand({ experience }) {
   const [formData, setFormData] = React.useState({
     companyName: experience.companyName,
     jobTitle: '',
     startDate: '',
+    
     endDate: '',
     location: ''
   });
 
   const handleChange = (e, key) => {
     setFormData({
-      ...formData,
+  
       [key]: e.target.value
     });
   };
@@ -20,6 +21,7 @@ function ExperienceExpand({ experience }) {
   return (
     <div className="experience-expand">
       <InputGroup
+            type="text"
         id="company-name"
         labelText="Company Name"
         placeholder="Enter Company Name"
@@ -28,6 +30,7 @@ function ExperienceExpand({ experience }) {
         data-key="companyName"
       />
       <InputGroup
+            type="text"
         id="job-title"
         labelText="Job Title"
         placeholder="Enter Job Title"
@@ -36,6 +39,7 @@ function ExperienceExpand({ experience }) {
         data-key="jobTitle"
       />
       <InputGroup
+        type="text"
         id="start-date"
         labelText="Start Date"
         placeholder="Enter Start Date"
@@ -44,6 +48,7 @@ function ExperienceExpand({ experience }) {
         data-key="startDate"
       />
       <InputGroup
+          type="text"
         id="end-date"
         labelText="End Date"
         placeholder="Enter End Date"
@@ -52,6 +57,7 @@ function ExperienceExpand({ experience }) {
         data-key="endDate"
       />
       <InputGroup
+      type="text"
         id="location"
         labelText="Location"
         placeholder="Enter Location"
