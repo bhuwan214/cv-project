@@ -6,7 +6,7 @@ import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 function ExperienceInfo() {
   // Initialize state for experiences, including `visible` property for each
   const [experiences, setExperiences] = useState([
-    { companyName: 'Umbrella Inc.', visible: false },
+    { companyName: 'Umbrella Inc.', visible: false , jobTitle:"Manager", startDate:"2018-2-12",endDate:"2023-11-19",location:"Gutenberg,New Jersey"},
     { companyName: 'Black Mesa Labs', visible: false }
   ]);
 

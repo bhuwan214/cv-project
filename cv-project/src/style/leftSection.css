@@ -23,7 +23,7 @@
     box-shadow:0 7px 29px 0 hsla(240,5%,41%,.2);
   
   }
-  .personal-detail h2,.experience h2,.education h2{
+   h2{
     color: rgb(203, 123, 123);
     font-family: NotoSans;
     letter-spacing: -.6px;

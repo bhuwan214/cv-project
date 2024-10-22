@@ -24,7 +24,7 @@ function EducationExpand({ education }) {
         labelText="School Name"
         placeholder="Enter School Name"
         value={formData.schoolName}
-        onChange={handleChange}
+        onChange={(e)=>handleChange(e,'schoolName')}
         data-key="schoolName"
       />
       <InputGroup

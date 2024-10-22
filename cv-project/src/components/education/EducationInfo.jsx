@@ -1,21 +1,28 @@
 import { useState } from 'react';
 import EducationExpand from './EducationExpand';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 function EducationInfo() {
-  const [expandedIndex, setExpandedIndex] = useState(null);
-
-  const educations = [
+  // Initialize state for experiences, including `visible` property for each
+  const [educations,setEducation] = useState([
     { schoolName: 'London City University', visible: true },
     { schoolName: 'Hidden University', visible: true }
-  ];
+  ]);
 
-  const toggleEducationExpand = (index) => {
-    if (expandedIndex === index) {
-      setExpandedIndex(null); // Close if clicked again
-    } else {
-      setExpandedIndex(index); // Expand clicked item
-    }
-  };
+  // Initialize state for expanded index to handle expanding/collapsing content
+  const [expandedIndex, setExpandedIndex] = useState(null);
+
+  // Toggle the expanded section and the visibility of each education title independently
+  const toggleEducationExpand=(index)=>{
+    setExpandedIndex(expandedIndex===index ? null:index);
+  
+
+   // Toggle visibility for the selected experience
+   setEducation(educations.map((edu, i) =>
+    i === index ? { ...edu, visible: !edu.visible } : edu
+  ));
+}
 
   return (
     <>
@@ -23,9 +30,14 @@ function EducationInfo() {
       {educations.map((edu, index) => (
         <div key={index} className="education-item">
           <div className="education-title" onClick={() => toggleEducationExpand(index)}>
-            {edu.schoolName}
-            {edu.visible ? <span role="img" aria-label="visible-icon">👁️</span> : <span role="img" aria-label="hidden-icon">🙈</span>}
-          </div>
+            <h2>{edu.schoolName}
+            <span style={{ marginLeft: '10px' }}>
+                  {edu.visible
+                    ? <FontAwesomeIcon icon={faEyeSlash} />
+                    : <FontAwesomeIcon icon={faEye} />}
+                </span>
+                </h2>
+          </div> 
 
           {/* If the clicked education item matches the expanded index, show the expanded form */}
           {expandedIndex === index && <EducationExpand education={edu} />}

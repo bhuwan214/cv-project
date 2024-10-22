@@ -4,16 +4,15 @@ import InputGroup from "../InputGroup"; // Reusable input component
 function ExperienceExpand({ experience }) {
   const [formData, setFormData] = React.useState({
     companyName: experience.companyName,
-    jobTitle: '',
-    startDate: '',
-    
-    endDate: '',
-    location: ''
+    jobTitle: experience.jobTitle,
+    startDate: experience.startDate,
+    endDate: experience.endDate,
+    location: experience.location
   });
 
   const handleChange = (e, key) => {
     setFormData({
-  
+
       [key]: e.target.value
     });
   };
@@ -26,7 +25,7 @@ function ExperienceExpand({ experience }) {
         labelText="Company Name"
         placeholder="Enter Company Name"
         value={formData.companyName}
-        onChange={handleChange}
+        onChange={(e)=>handleChange(e,"companyName")}
         data-key="companyName"
       />
       <InputGroup
@@ -35,7 +34,7 @@ function ExperienceExpand({ experience }) {
         labelText="Job Title"
         placeholder="Enter Job Title"
         value={formData.jobTitle}
-        onChange={handleChange}
+        onChange={(e)=>handleChange(e,"jobTitle")}
         data-key="jobTitle"
       />
       <InputGroup
@@ -44,7 +43,7 @@ function ExperienceExpand({ experience }) {
         labelText="Start Date"
         placeholder="Enter Start Date"
         value={formData.startDate}
-        onChange={handleChange}
+        onChange={(e)=>handleChange(e,"startDate")}
         data-key="startDate"
       />
       <InputGroup
@@ -53,7 +52,7 @@ function ExperienceExpand({ experience }) {
         labelText="End Date"
         placeholder="Enter End Date"
         value={formData.endDate}
-        onChange={handleChange}
+        onChange={(e)=>handleChange(e,"endDate")}
         data-key="endDate"
       />
       <InputGroup
@@ -62,11 +61,11 @@ function ExperienceExpand({ experience }) {
         labelText="Location"
         placeholder="Enter Location"
         value={formData.location}
-        onChange={handleChange}
+        onChange={(e)=>handleChange(e,"location")}
         data-key="location"
       />
      
-      {console.log(formData.location)}
+      {console.log(formData)}
     </div>
   );
 }
