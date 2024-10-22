@@ -13,6 +13,7 @@
     border-radius: 10px;
     background-color: #f3f5f7;
     margin-bottom: 25px;
+    display: flex;
 
 
 }
@@ -29,6 +30,6 @@ justify-content: center;
 
 }
 
-.education-expand{
-    
+ h2>span{
+margin-left: 10px;
 }
