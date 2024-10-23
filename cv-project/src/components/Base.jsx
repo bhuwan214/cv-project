@@ -22,16 +22,10 @@ export const Base = ()=>{
             <Education/>
             <Experience/>
            
-           <div className="form-btn">
-            <button id="save-btn">save</button>
-           <button id="delete-btn">delete</button>
-           </div>
-            
-
-            <div className="experince"></div>
         </div>
     </div>
-    <div className="container">
+    <div className="preview-container">
+
 
     </div>
     </main>

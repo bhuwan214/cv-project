@@ -3,6 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
 import EducationInfo from './EducationInfo';
 import '../../style/form.css'
+
+
 export function Education() {
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -16,7 +18,7 @@ export function Education() {
       <h2>Education  <span className='arrow-down'><FontAwesomeIcon icon={faAngleDown} className={` angle-down ${isExpanded?'':'open'}`} /></span> </h2>
       </div>
       
-      {isExpanded && <EducationInfo />}
+      {isExpanded && <EducationInfo  />}
     </div>
   );
 }

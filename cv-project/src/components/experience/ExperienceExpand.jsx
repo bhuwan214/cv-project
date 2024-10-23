@@ -1,7 +1,7 @@
 import React from 'react';
 import InputGroup from "../InputGroup"; // Reusable input component
 
-function ExperienceExpand({ experience }) {
+function ExperienceExpand({ experience, updateExperience, deleteExperience, clearExperience  }) {
   const [formData, setFormData] = React.useState({
     companyName: experience.companyName,
     jobTitle: experience.jobTitle,
@@ -18,6 +18,7 @@ function ExperienceExpand({ experience }) {
   };
 
   return (
+  <>
     <div className="experience-expand">
       <InputGroup
             type="text"
@@ -65,8 +66,21 @@ function ExperienceExpand({ experience }) {
         data-key="location"
       />
      
+     <div className="form-buttons">
+
+            <button type="button" onClick={() => deleteExperience(experience.id)}>
+              Delete
+            </button>
+            <button type="button" onClick={() => clearExperience(experience.id)}>
+              Clear
+            </button>
+            <button type="button" onClick={()=>updateExperience(experience.id)}>
+              Save
+            </button>
+          </div>
       {console.log(formData)}
     </div>
+    </>
   );
 }
 

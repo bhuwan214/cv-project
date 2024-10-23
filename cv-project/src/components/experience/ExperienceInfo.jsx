@@ -23,6 +23,40 @@ function ExperienceInfo() {
     ));
   };
 
+
+const addExperience =()=>{
+  const newExperience ={
+    id: Date.now(),
+    companyName: '',
+    jobTitle: '',
+    startDate: '',
+    endDate: '',
+    location: '',
+  }
+  setExperiences([...experiences,newExperience])
+}
+
+const updateExperience =(id,updateData)=>{
+  const updatedExperiences =experiences.map((exp)=>
+    exp.id === id ? {...exp, ...updateData} : exp)
+  setExperiences(updatedExperiences)
+}
+
+const deleteExperience =(id)=>{
+  const filteredExperiences =experiences.filter((exp)=>exp.id!==id);
+  setExperiences(filteredExperiences)
+}
+
+
+const clearExperience = (id) => {
+  const clearedExperiences = experiences.map((exp) =>
+    exp.id === id
+      ? { ...exp, companyName: '', jobTitle: '', startDate: '', endDate: '', location: '' }
+      : exp
+  );
+  setExperiences(clearedExperiences);
+};
+
   return (
     <>
       <div className="experience-info">
@@ -40,7 +74,16 @@ function ExperienceInfo() {
             </div>
 
             {/* If the clicked experience item matches the expanded index, show the expanded content */}
-            {expandedIndex === index && <ExperienceExpand experience={exp} />}
+            {expandedIndex === index &&
+             <ExperienceExpand 
+             experience={exp}
+             key={exp.id}
+             updateExperience={updateExperience}
+             deleteExperience={deleteExperience}
+             clearExperience={clearExperience}
+
+             />
+             }
           </div>
         ))}
       </div>

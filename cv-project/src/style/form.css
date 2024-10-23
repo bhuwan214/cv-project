@@ -36,3 +36,8 @@ justify-content: center;
  h2>span{
 margin-left: 10px;
 }
+button{
+    background-color: gray;
+    font: white;
+    margin: 10px;
+}
