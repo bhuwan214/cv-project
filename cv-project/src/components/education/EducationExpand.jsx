@@ -1,14 +1,25 @@
-import React from 'react';
+import React,{ useEffect } from 'react';
 import InputGroup from '../InputGroup'; // Reusable input component
 
-function EducationExpand({ education }) {
+function EducationExpand({ education , updateEducation, deleteEducation,clearEducation}) {
   const [formData, setFormData] = React.useState({
     schoolName: education.schoolName,
-    degree: '',
-    startDate: '',
-    endDate: '',
-    location: ''
+    degree: education.degree,
+    startDate: education.startDate,
+    endDate: education.endDate,
+    location: education.location
   });
+
+  //Sync formData with the experience prop when it updates( e.g when clear is called)
+   useEffect(()=>{
+    setFormData({
+      schoolName: education.schoolName,
+      degree: education.degree,
+      startDate:education.startDate,
+      endDate: education.endDate,
+      location: education.location
+    });
+   },[education]);
 
   const handleChange = (e, key) => {
     setFormData({
@@ -32,7 +43,7 @@ function EducationExpand({ education }) {
         labelText="Degree"
         placeholder="Enter Degree"
         value={formData.degree}
-        onChange={handleChange}
+        onChange={(e)=>handleChange(e,"degree")}
         data-key="degree"
       />
       <InputGroup
@@ -40,7 +51,7 @@ function EducationExpand({ education }) {
         labelText="Start Date"
         placeholder="Enter Start Date"
         value={formData.startDate}
-        onChange={handleChange}
+        onChange={(e)=>handleChange(e,"startDate")}
         data-key="startDate"
       />
       <InputGroup
@@ -48,7 +59,7 @@ function EducationExpand({ education }) {
         labelText="End Date"
         placeholder="Enter End Date"
         value={formData.endDate}
-        onChange={handleChange}
+        onChange={(e)=>handleChange(e,"endDate")}
         data-key="endDate"
       />
       <InputGroup
@@ -56,9 +67,22 @@ function EducationExpand({ education }) {
         labelText="Location"
         placeholder="Enter Location"
         value={formData.location}
-        onChange={handleChange}
+        onChange={(e)=>handleChange(e,"location")}
         data-key="location"
       />
+      
+      <div className="form-buttons">
+        
+          <button type="button" onClick={() => deleteEducation(education.id)}>
+            Delete
+          </button>
+          <button type="button" onClick={() => clearEducation(education.id)}>
+            Clear
+          </button>
+          <button type="button" onClick={() => updateEducation(education.id, formData)}>
+            Save
+          </button>
+        </div>
     </div>
   );
 }
