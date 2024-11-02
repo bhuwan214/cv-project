@@ -94,4 +94,3 @@ import "../../style/animation.css"
 //         </>
 //     )
 // }
-
