@@ -70,6 +70,9 @@ function EducationExpand({ education , updateEducation, deleteEducation,clearEdu
         onChange={(e)=>handleChange(e,"location")}
         data-key="location"
       />
+
+{console.log(formData.location)}
+
       
       <div className="form-buttons">
         
