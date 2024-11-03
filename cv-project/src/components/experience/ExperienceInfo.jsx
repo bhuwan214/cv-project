@@ -157,7 +157,7 @@ function ExperienceInfo({ experiences, updateExperiences }) {
 
   // Function to delete an experience
   const deleteExperience = (id) => {
-<<<<<<< HEAD
+
     const filteredExperiences = experiences.filter((exp) => exp.id !== id);
     setExperiences(filteredExperiences);
   };
@@ -169,9 +169,7 @@ function ExperienceInfo({ experiences, updateExperiences }) {
         ? { ...exp, companyName: '', jobTitle: '', startDate: '', endDate: '', location: '' } : exp
     );
     setExperiences(clearedExperiences);
-=======
     updateExperiences({ id, deleted: true }); // Mark experience as deleted in parent
->>>>>>> edcdef7ab48a1d5a92fe28edfbdb2c0000e5c75f
   };
 
   return (
