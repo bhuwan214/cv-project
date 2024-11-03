@@ -72,8 +72,7 @@ function ExperienceInfo() {
   const clearExperience = (id) => {
     const clearedExperiences = experiences.map((exp) =>
       exp.id === id
-        ? { ...exp, companyName: '', jobTitle: '', startDate: '', endDate: '', location: '' }
-        : exp
+        ? { ...exp, companyName: '', jobTitle: '', startDate: '', endDate: '', location: '' } : exp
     );
     setExperiences(clearedExperiences);
   };
