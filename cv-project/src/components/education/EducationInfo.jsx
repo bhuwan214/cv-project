@@ -91,6 +91,8 @@ setEducations(clearedEducations)
                 </h2>
           </div> 
 
+
+
           {/* If the clicked education item matches the expanded index, show the expanded form */}
           {expandedIndex === index &&
           ( <EducationExpand
@@ -110,6 +112,7 @@ setEducations(clearedEducations)
      <button className="add-education-btn" onClick={addEducation}>+ Education</button>
      </div>
     </>
+    
   );
 }
 

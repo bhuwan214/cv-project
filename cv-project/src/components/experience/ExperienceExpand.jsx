@@ -70,6 +70,10 @@ function ExperienceExpand({ experience, updateExperience, deleteExperience, clea
           onChange={(e) => handleChange(e, "location")}
         />
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> edcdef7ab48a1d5a92fe28edfbdb2c0000e5c75f
         <div className="form-buttons">
           
           <button type="button" onClick={() => deleteExperience(experience.id)}>
@@ -87,4 +91,9 @@ function ExperienceExpand({ experience, updateExperience, deleteExperience, clea
   );
 }
 
+<<<<<<< HEAD
 export default ExperienceExpand;
+=======
+export default ExperienceExpand;
+
+>>>>>>> edcdef7ab48a1d5a92fe28edfbdb2c0000e5c75f
