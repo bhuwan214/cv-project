@@ -1,5 +1,4 @@
 import  { useState } from 'react';
-import { Experience } from './experience/Experience'
  import { Education } from './education/Education';
 import PersonalDetails  from './PersonalDetail';
 import PreviewSection from './PreviewSection';
@@ -11,6 +10,8 @@ function Base() {
     const [experienceData, setExperienceData] = useState([]);
     const [educationData, setEducationData] = useState([]);
     const [personalDetails, setPersonalDetails] = useState({});
+
+ var experiencesData =[]
 
     return (
         <>
@@ -28,7 +29,7 @@ function Base() {
                 <div className="detail-component">
                 <PersonalDetails updatePersonalDetails={setPersonalDetails} />
                  <Education updateEducationData={setEducationData} />
-                <Experience updateExperienceData={setExperienceData} />
+                 {/* <Experience experiences={experiencesData} updateExperiences={updateExperiences} /> */}
                    
                 </div>
             </div>
