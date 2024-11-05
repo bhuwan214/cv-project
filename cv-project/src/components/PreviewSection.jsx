@@ -2,6 +2,7 @@ import { useState } from "react";
 import Experience from "./experience/Experience";
 import Education from "./education/Education";
 import Personal from "./PersonalDetail";
+import StickyBtn from "./StickyBtn";
 
 function PreviewSection() {
   const [personalDetails, setPersonalDetails] = useState({
@@ -54,20 +55,23 @@ function PreviewSection() {
 
   return (
   <>
-     
+
+  <div className="left-bar">
+    
+        <StickyBtn/>
    <div className="detail-component">
     {/* Render the form sections */}
     <Personal onPersonalDetailChange={handlePersonalDetailChange} />
     <Experience onExperienceUpdate={handleExperienceUpdate} />
     <Education onEducationUpdate={handleEducationUpdate} />
-
+</div>
     </div>
 
-    
+
     <div className="preview-container">
 
   
-      <h2>Preview</h2>
+      <h2>Personal Details</h2>
       {/* Display personal details */}
       <div className="personal-preview">
         <h3>{personalDetails.fullName}</h3>
