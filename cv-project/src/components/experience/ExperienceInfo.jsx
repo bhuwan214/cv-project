@@ -8,6 +8,7 @@ function ExperienceInfo({ experiences, updateExperiences, setIsExpanded }) {
 
   const toggleExperienceExpand = (index) => {
     setExpandedIndex(expandedIndex === index ? null : index);
+    toggleVisibility(experiences[index].id)
   };
 
   const addExperience = () => {
@@ -48,6 +49,18 @@ function ExperienceInfo({ experiences, updateExperiences, setIsExpanded }) {
     updateExperiences(clearedExperience);
   };
 
+  const toggleVisibility =(id)=>{
+    const experienceToToggle = experiences.find((exp) => exp.id === id);
+    if (experienceToToggle) {
+      const updatedExperience = {
+        ...experienceToToggle,
+        visible: !experienceToToggle.visible,
+      };
+      updateExperiences(updatedExperience);
+    }
+  };
+
+
   return (
     <>
       <div className="experience-info">
@@ -55,7 +68,7 @@ function ExperienceInfo({ experiences, updateExperiences, setIsExpanded }) {
           <div key={exp.id} className="experience-item">
             <div className="experience-title" onClick={() => toggleExperienceExpand(index)}>
               <h2>{exp.companyName || 'New Experience'}
-                <span style={{ marginLeft: '10px' }}>
+                <span style={{ marginLeft: '10px' }} onClick={()=>toggleVisibility(exp.id)}>
                   {exp.visible
                     ? <FontAwesomeIcon icon={faEyeSlash} />
                     : <FontAwesomeIcon icon={faEye} />}

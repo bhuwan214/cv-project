@@ -10,6 +10,7 @@ function ExperienceExpand({ experience, updateExperience, deleteExperience, clea
     location: experience.location
   });
 
+  // Update the form data when the experience prop changes
   useEffect(() => {
     setFormData({
       companyName: experience.companyName,
@@ -20,6 +21,7 @@ function ExperienceExpand({ experience, updateExperience, deleteExperience, clea
     });
   }, [experience]);
 
+  // Handle input changes and update experience immediately
   const handleChange = (e, key) => {
     const updatedFormData = { ...formData, [key]: e.target.value };
     setFormData(updatedFormData);

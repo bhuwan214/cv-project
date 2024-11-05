@@ -1,91 +1,84 @@
-import React,{ useEffect } from 'react';
-import InputGroup from '../InputGroup'; // Reusable input component
+import React, { useEffect } from 'react';
+import InputGroup from "../InputGroup";
 
-function EducationExpand({ education , updateEducation, deleteEducation,clearEducation}) {
+function EducationExpand({ education, updateEducation, deleteEducation, clearEducation }) {
   const [formData, setFormData] = React.useState({
-    schoolName: education.schoolName,
+    institution: education.institution,
     degree: education.degree,
     startDate: education.startDate,
     endDate: education.endDate,
-    location: education.location
+    location: education.location,
   });
 
-  //Sync formData with the experience prop when it updates( e.g when clear is called)
-   useEffect(()=>{
+  // Update the form data when the education prop changes
+  useEffect(() => {
     setFormData({
-      schoolName: education.schoolName,
+      institution: education.institution,
       degree: education.degree,
-      startDate:education.startDate,
+      startDate: education.startDate,
       endDate: education.endDate,
-      location: education.location
+      location: education.location,
     });
-   },[education]);
+  }, [education]);
 
+  // Handle input changes and update experience immediately
   const handleChange = (e, key) => {
-    setFormData({
-      ...formData,
-      [key]: e.target.value
-    });
+    const updatedFormData = { ...formData, [key]: e.target.value };
+    setFormData(updatedFormData);
   };
 
   return (
     <div className="education-expand">
       <InputGroup
-        id="school-name"
-        labelText="School Name"
-        placeholder="Enter School Name"
-        value={formData.schoolName}
-        onChange={(e)=>handleChange(e,'schoolName')}
-        data-key="schoolName"
+        type="text"
+        id="institution"
+        labelText="Institution"
+        placeholder="Enter Institution"
+        value={formData.institution}
+        onChange={(e) => handleChange(e, "institution")}
       />
       <InputGroup
+        type="text"
         id="degree"
         labelText="Degree"
         placeholder="Enter Degree"
         value={formData.degree}
-        onChange={(e)=>handleChange(e,"degree")}
-        data-key="degree"
+        onChange={(e) => handleChange(e, "degree")}
       />
       <InputGroup
+        type="date"
         id="start-date"
         labelText="Start Date"
-        placeholder="Enter Start Date"
         value={formData.startDate}
-        onChange={(e)=>handleChange(e,"startDate")}
-        data-key="startDate"
+        onChange={(e) => handleChange(e, "startDate")}
       />
       <InputGroup
+        type="date"
         id="end-date"
         labelText="End Date"
-        placeholder="Enter End Date"
         value={formData.endDate}
-        onChange={(e)=>handleChange(e,"endDate")}
-        data-key="endDate"
+        onChange={(e) => handleChange(e, "endDate")}
       />
       <InputGroup
+        type="text"
         id="location"
         labelText="Location"
         placeholder="Enter Location"
         value={formData.location}
-        onChange={(e)=>handleChange(e,"location")}
-        data-key="location"
+        onChange={(e) => handleChange(e, "location")}
       />
 
-{console.log(formData.location)}
-
-      
       <div className="form-buttons">
-        
-          <button type="button" onClick={() => deleteEducation(education.id)}>
-            Delete
-          </button>
-          <button type="button" onClick={() => clearEducation(education.id)}>
-            Clear
-          </button>
-          <button type="button" onClick={() => updateEducation(education.id, formData)}>
-            Save
-          </button>
-        </div>
+        <button type="button" onClick={() => deleteEducation(education.id)}>
+          Delete
+        </button>
+        <button type="button" onClick={() => clearEducation(education.id)}>
+          Clear
+        </button>
+        <button type="button" onClick={() => updateEducation(formData,true)}>
+          Save
+        </button>
+      </div>
     </div>
   );
 }

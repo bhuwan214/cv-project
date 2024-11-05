@@ -25,23 +25,15 @@ function Base() {
                     <div className="edit-btn load-example">Load Example</div>
                     </div>
                 </div>
-        
-                <div className="detail-component">
-                <PersonalDetails updatePersonalDetails={setPersonalDetails} />
-                 <Education updateEducationData={setEducationData} />
-                 {/* <Experience experiences={experiencesData} updateExperiences={updateExperiences} /> */}
                    
                 </div>
-            </div>
-            <div className="preview-container">
+            
         
             <PreviewSection
              experience={experienceData}
              education={educationData}
              personalDetails={personalDetails}
             />
-            
-            </div>
             </main>
         
             </>
