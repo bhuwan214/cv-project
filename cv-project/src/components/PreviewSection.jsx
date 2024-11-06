@@ -3,9 +3,11 @@ import Experience from "./experience/Experience";
 import Education from "./education/Education";
 import Personal from "./PersonalDetail";
 import StickyBtn from "./StickyBtn";
+import { ExampleEdu, ExampleExp } from "./Example";
 import { faEnvelope, faPhone, faLocationDot } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import "../style/preview.css";
+
 
 function PreviewSection() {
   const [personalDetails, setPersonalDetails] = useState({
@@ -106,17 +108,24 @@ function PreviewSection() {
       <div className="education-preview">
         <h2 className="preview-title">Education</h2>
         {educations.length === 0 ? (
-          <p>No education added.</p>
+          <>
+          <ExampleEdu/>
+          <ExampleEdu/>
+          </>
+          
+          
         ) : (
           educations.map((edu) => (
-            <div key={edu.id} className="education-info">
+            <div key={edu.id} className="education-info-preview">
             <div className="education-info-group">
               <p className="dates">{edu.startDate} - {edu.endDate}</p>
               <p>{edu.location}</p>
             </div>
-            <div  className="education-info-group"></div>
+
+            <div  className="education-info-group">
             <p className="education-info-institution">{edu.institution}</p>
             <p className="education-info-degree">{edu.degree}</p>
+            </div>
             </div>
 
           ))
@@ -128,25 +137,25 @@ function PreviewSection() {
       <div className="experience-preview">
         <h2 className="preview-title">Experience</h2>
         {experiences.length === 0 ? (
-          <p>No experience added.</p>
-        ) : (
+          <><ExampleExp/>  
+          <ExampleExp/>
+           </>
+   ) : (
           experiences.map((exp) => (
-            <div key={exp.id} className="experience-info">
+            <div key={exp.id} className="experience-info-preview">
             <div className="experience-info-group">
               <p className="dates">{exp.startDate} - {exp.endDate}</p>
               <p>{exp.location}</p>
             </div>
-            <div  className="experience-info-group"></div>
+            <div  className="experience-info-group">
             <p className="experience-info-company">{exp.companyName}</p>
             <p className="experience-info-position">{exp.jobTitle}</p>
             <p className="experience-info-description">{exp.description}</p>
             </div>
+            </div>
           ))
         )}
       </div>
-
-
-      
     </div>
  </>
   );

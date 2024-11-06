@@ -48,15 +48,17 @@ function ExperienceExpand({ experience, updateExperience, deleteExperience, clea
         onChange={(e) => handleChange(e, "jobTitle")}
       />
       <InputGroup
-        type="date"
+        type="month"
         id="start-date"
+        placeholder="Enter Start Date"
         labelText="Start Date"
         value={formData.startDate}
         onChange={(e) => handleChange(e, "startDate")}
       />
       <InputGroup
-        type="date"
+        type="month"
         id="end-date"
+        placeholder="Enter End Date"
         labelText="End Date"
         value={formData.endDate}
         onChange={(e) => handleChange(e, "endDate")}

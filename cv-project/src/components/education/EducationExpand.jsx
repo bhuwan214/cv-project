@@ -46,15 +46,17 @@ function EducationExpand({ education, updateEducation, deleteEducation, clearEdu
         onChange={(e) => handleChange(e, "degree")}
       />
       <InputGroup
-        type="date"
+        type="text"
         id="start-date"
+        placeholder="Enter Start Date"
         labelText="Start Date"
         value={formData.startDate}
         onChange={(e) => handleChange(e, "startDate")}
       />
       <InputGroup
-        type="date"
+        type="text"
         id="end-date"
+        placeholder="Enter End Date"
         labelText="End Date"
         value={formData.endDate}
         onChange={(e) => handleChange(e, "endDate")}
@@ -62,8 +64,8 @@ function EducationExpand({ education, updateEducation, deleteEducation, clearEdu
       <InputGroup
         type="text"
         id="location"
-        labelText="Location"
         placeholder="Enter Location"
+        labelText="Location"
         value={formData.location}
         onChange={(e) => handleChange(e, "location")}
       />

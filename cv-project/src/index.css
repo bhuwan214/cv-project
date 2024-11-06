@@ -21,7 +21,6 @@ body,html,main{
 main{
   display: flex;
   justify-content: flex-start;
-  
   background-color:#F3F5F7;
 }
 
@@ -46,8 +45,8 @@ main{
 top: 30px;
 
 }
-.edit{
 
+.edit{
 width:100%;
 height: fit-content;
 font-size: 13.5px;
