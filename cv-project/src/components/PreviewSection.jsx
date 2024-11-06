@@ -3,6 +3,9 @@ import Experience from "./experience/Experience";
 import Education from "./education/Education";
 import Personal from "./PersonalDetail";
 import StickyBtn from "./StickyBtn";
+import { faEnvelope, faPhone, faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import "../style/preview.css";
 
 function PreviewSection() {
   const [personalDetails, setPersonalDetails] = useState({
@@ -62,55 +65,86 @@ function PreviewSection() {
    <div className="detail-component">
     {/* Render the form sections */}
     <Personal onPersonalDetailChange={handlePersonalDetailChange} />
-    <Experience onExperienceUpdate={handleExperienceUpdate} />
     <Education onEducationUpdate={handleEducationUpdate} />
+    <Experience onExperienceUpdate={handleExperienceUpdate} />
 </div>
     </div>
 
 
     <div className="preview-container">
 
-  
-      <h2>Personal Details</h2>
-      {/* Display personal details */}
-      <div className="personal-preview">
-        <h3>{personalDetails.fullName}</h3>
-        <p>{personalDetails.email}</p>
-        <p>{personalDetails.phoneNumber}</p>
-        <p>{personalDetails.address}</p>
+     {/* Display personal details */}
+     <div className="personal-preview">   
+      {personalDetails.length === 0 ? (
+        <p>No personal details added.</p>
+      ):(
+        <>
+        <h1 className="resume-name" >{personalDetails.fullName ||'John Doe'}</h1>
+
+        <div className="contact-info">
+          <div>
+            <FontAwesomeIcon icon={faEnvelope} />
+          <span>{personalDetails.email||'john.doe@example.com'}</span>
+          </div>
+
+          <div>
+            <FontAwesomeIcon icon={faPhone} />
+          <span>{personalDetails.phoneNumber||'+91 9876543210'}</span>
+          </div>
+
+          <div>
+            <FontAwesomeIcon icon={faLocationDot} />
+          <span>{personalDetails.address||'123 Main St, Anytown, USA'}</span>
+          </div>
+        </div>
+        </>
+      )}
       </div>
 
-      {/* Experience Preview */}
-      <div className="experience-preview">
-        <h2>Experience</h2>
-        {experiences.length === 0 ? (
-          <p>No experience added.</p>
-        ) : (
-          experiences.map((exp) => (
-            <div key={exp.id} className="preview-item">
-              <h3>{exp.jobTitle} at {exp.companyName}</h3>
-              <p>{exp.startDate} - {exp.endDate}</p>
-              <p>{exp.location}</p>
-            </div>
-          ))
-        )}
-      </div>
 
       {/* Education Preview */}
       <div className="education-preview">
-        <h2>Education</h2>
+        <h2 className="preview-title">Education</h2>
         {educations.length === 0 ? (
           <p>No education added.</p>
         ) : (
           educations.map((edu) => (
-            <div key={edu.id} className="preview-item">
-              <h3>{edu.degree} from {edu.institution}</h3>
-              <p>{edu.startDate} - {edu.endDate}</p>
+            <div key={edu.id} className="education-info">
+            <div className="education-info-group">
+              <p className="dates">{edu.startDate} - {edu.endDate}</p>
               <p>{edu.location}</p>
+            </div>
+            <div  className="education-info-group"></div>
+            <p className="education-info-institution">{edu.institution}</p>
+            <p className="education-info-degree">{edu.degree}</p>
+            </div>
+
+          ))
+        )}
+
+</div>
+      {/* Experience Preview */}
+
+      <div className="experience-preview">
+        <h2 className="preview-title">Experience</h2>
+        {experiences.length === 0 ? (
+          <p>No experience added.</p>
+        ) : (
+          experiences.map((exp) => (
+            <div key={exp.id} className="experience-info">
+            <div className="experience-info-group">
+              <p className="dates">{exp.startDate} - {exp.endDate}</p>
+              <p>{exp.location}</p>
+            </div>
+            <div  className="experience-info-group"></div>
+            <p className="experience-info-company">{exp.companyName}</p>
+            <p className="experience-info-position">{exp.jobTitle}</p>
+            <p className="experience-info-description">{exp.description}</p>
             </div>
           ))
         )}
       </div>
+
 
       
     </div>

@@ -7,7 +7,8 @@ function ExperienceExpand({ experience, updateExperience, deleteExperience, clea
     jobTitle: experience.jobTitle,
     startDate: experience.startDate,
     endDate: experience.endDate,
-    location: experience.location
+    location: experience.location,
+    description: experience.description
   });
 
   // Update the form data when the experience prop changes
@@ -17,7 +18,8 @@ function ExperienceExpand({ experience, updateExperience, deleteExperience, clea
       jobTitle: experience.jobTitle,
       startDate: experience.startDate,
       endDate: experience.endDate,
-      location: experience.location
+      location: experience.location,
+      description: experience.description
     });
   }, [experience]);
 
@@ -66,6 +68,14 @@ function ExperienceExpand({ experience, updateExperience, deleteExperience, clea
         placeholder="Enter Location"
         value={formData.location}
         onChange={(e) => handleChange(e, "location")}
+      />
+      <InputGroup
+        type="text-area"
+        id="description"
+        labelText="Description"
+        placeholder="Enter Description"
+        value={formData.description}
+        onChange={(e) => handleChange(e, "description")}
       />
 
       <div className="form-buttons">
