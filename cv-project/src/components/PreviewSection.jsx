@@ -4,7 +4,7 @@ import Education from "./education/Education";
 import Personal from "./PersonalDetail";
 import StickyBtn from "./StickyBtn";
 import { ExampleEdu, ExampleExp } from "./Example";
-import { faEnvelope, faPhone, faLocationDot } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faPhone, faLocationDot,faDownload } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import "../style/preview.css";
 
@@ -57,6 +57,17 @@ function PreviewSection() {
     });
   };
 
+  // //Download Button function
+  // async function handleOnClick(){
+  // const element =document.querySelector("#resume");
+  //   html2pdf(element);
+  // }
+
+  async function handleOnClick(){
+const  element =document.querySelector("#resume");
+const html = await compile(element);
+return html;
+  }
 
   return (
   <>
@@ -73,10 +84,11 @@ function PreviewSection() {
     </div>
 
 
+<div id="resume">
     <div className="preview-container">
 
      {/* Display personal details */}
-     <div className="personal-preview">   
+ <div className="personal-preview">   
       {personalDetails.length === 0 ? (
         <p>No personal details added.</p>
       ):(
@@ -101,7 +113,7 @@ function PreviewSection() {
         </div>
         </>
       )}
-      </div>
+      </div> 
 
 
       {/* Education Preview */}
@@ -134,7 +146,7 @@ function PreviewSection() {
 </div>
       {/* Experience Preview */}
 
-      <div className="experience-preview">
+        <div className="experience-preview">
         <h2 className="preview-title">Experience</h2>
         {experiences.length === 0 ? (
           <><ExampleExp/>  
@@ -156,6 +168,10 @@ function PreviewSection() {
           ))
         )}
       </div>
+    
+      <button className="download-btn" onClick={handleOnClick} ><FontAwesomeIcon icon={faDownload} /></button>
+
+    </div>
     </div>
  </>
   );

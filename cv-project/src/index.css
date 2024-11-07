@@ -7,6 +7,7 @@
   src: url(./assets/fa-solid-900.66104b766c3d0462b3c5.woff2);
 
 }
+@layer base {image{display: initial;}}
 
 *{
   box-sizing: border-box;
