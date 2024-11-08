@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useRef } from "react";
 import Experience from "./experience/Experience";
 import Education from "./education/Education";
 import Personal from "./PersonalDetail";
@@ -6,6 +6,8 @@ import StickyBtn from "./StickyBtn";
 import { ExampleEdu, ExampleExp } from "./Example";
 import { faEnvelope, faPhone, faLocationDot,faDownload } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import generatePDF from "react-to-pdf"
+
 import "../style/preview.css";
 
 
@@ -57,17 +59,10 @@ function PreviewSection() {
     });
   };
 
-  // //Download Button function
-  // async function handleOnClick(){
-  // const element =document.querySelector("#resume");
-  //   html2pdf(element);
-  // }
 
-  async function handleOnClick(){
-const  element =document.querySelector("#resume");
-const html = await compile(element);
-return html;
-  }
+  //Last test Case
+const targetRef = useRef();
+  
 
   return (
   <>
@@ -83,9 +78,18 @@ return html;
 </div>
     </div>
 
+{Resume(personalDetails,experiences,educations,generatePDF,targetRef)}
 
-<div id="resume">
-    <div className="preview-container">
+
+ </>
+  );
+}
+
+
+function Resume(personalDetails,experiences,educations,generatePDF,targetRef){
+  return(
+  <>
+    <div className="preview-container" ref={targetRef}>
 
      {/* Display personal details */}
  <div className="personal-preview">   
@@ -168,13 +172,10 @@ return html;
           ))
         )}
       </div>
-    
-      <button className="download-btn" onClick={handleOnClick} ><FontAwesomeIcon icon={faDownload} /></button>
-
     </div>
-    </div>
- </>
-  );
+    <button className="download-btn" onClick={()=>generatePDF(targetRef, {filename: 'page.pdf'})} ><FontAwesomeIcon icon={faDownload} /></button>
+    </>
+  )
 }
 
 export default PreviewSection;

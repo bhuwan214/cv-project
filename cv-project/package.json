@@ -10,9 +10,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@fileforge/react-print": "^0.1.150",
+    "@fortawesome/fontawesome-svg-core": "^6.6.0",
+    "@fortawesome/free-brands-svg-icons": "^6.6.0",
+    "@fortawesome/free-regular-svg-icons": "^6.6.0",
+    "@fortawesome/free-solid-svg-icons": "^6.6.0",
+    "@fortawesome/react-fontawesome": "^0.2.2",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-to-pdf": "^1.0.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.11.1",
